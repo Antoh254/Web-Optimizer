@@ -8,6 +8,7 @@
 
     <link rel="icon"
         href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
+
     <style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
@@ -15,22 +16,53 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            min-height: 100vh;
             margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
         }
 
         .container {
             background: white;
             padding: 2rem;
             border-radius: 12px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            width: 400px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 420px;
             text-align: center;
         }
 
         h1 {
             color: #333;
-            margin-bottom: 1.5rem;
+            margin: 0 0 1.5rem 0;
+            font-size: 1.8rem;
+        }
+
+        /* New Instructions Section */
+        .instructions {
+            background: #eef5ff;
+            border-left: 4px solid #007bff;
+            padding: 15px;
+            border-radius: 4px;
+            text-align: left;
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+            color: #444;
+        }
+
+        .instructions strong {
+            display: block;
+            margin-bottom: 5px;
+            color: #0056b3;
+        }
+
+        .instructions ol {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        .instructions li {
+            margin-bottom: 4px;
         }
 
         .form-group {
@@ -41,8 +73,9 @@
         label {
             display: block;
             margin-bottom: 0.5rem;
-            font-weight: 500;
+            font-weight: 600;
             color: #555;
+            font-size: 0.9rem;
         }
 
         input[type="number"],
@@ -57,17 +90,23 @@
         /* File Upload Styling */
         .file-upload {
             border: 2px dashed #ccc;
-            padding: 20px;
+            padding: 25px 20px;
             border-radius: 8px;
             cursor: pointer;
             background: #fafafa;
             transition: 0.3s;
             text-align: center;
+            display: block;
         }
 
         .file-upload:hover {
             border-color: #007bff;
             background: #f0f8ff;
+        }
+
+        .file-upload span {
+            font-size: 1rem;
+            color: #666;
         }
 
         input[type="file"] {
@@ -78,10 +117,11 @@
             background: #007bff;
             color: white;
             border: none;
-            padding: 12px 20px;
+            padding: 14px 20px;
             width: 100%;
             border-radius: 6px;
             font-size: 16px;
+            font-weight: 600;
             cursor: pointer;
             transition: 0.2s;
             margin-top: 10px;
@@ -89,12 +129,15 @@
 
         button:hover {
             background: #0056b3;
+            transform: translateY(-1px);
         }
 
         .note {
-            font-size: 0.8rem;
-            color: #888;
-            margin-top: 15px;
+            font-size: 0.75rem;
+            color: #999;
+            margin-top: 20px;
+            border-top: 1px solid #eee;
+            padding-top: 15px;
         }
     </style>
 </head>
@@ -104,6 +147,15 @@
     <div class="container">
         <h1>⚡ Web Optimizer</h1>
 
+        <div class="instructions">
+            <strong>How to use:</strong>
+            <ol>
+                <li>Select multiple <b>JPG</b> or <b>PNG</b> images.</li>
+                <li>Set <b>Max Width</b> (e.g., 1200px for headers, 800px for blogs).</li>
+                <li>Click <b>Optimize</b> to download a ZIP of converted WebP files.</li>
+            </ol>
+        </div>
+
         <form action="/optimize" method="POST" enctype="multipart/form-data">
 
             <label for="fileInput" class="file-upload">
@@ -112,13 +164,13 @@
                     onchange="updateCount()">
             </label>
 
-            <div class="form-group" style="margin-top: 15px;">
+            <div class="form-group" style="margin-top: 20px;">
                 <label>Max Width (px):</label>
-                <input type="number" name="width" value="1200">
+                <input type="number" name="width" value="1200" placeholder="e.g. 1200">
             </div>
 
             <div class="form-group">
-                <label>Quality (1-100): <span id="qValue">85</span></label>
+                <label>Compression Quality (1-100): <span id="qValue" style="color: #007bff;">85</span></label>
                 <input type="range" name="quality" min="10" max="100" value="85"
                     oninput="document.getElementById('qValue').innerText = this.value">
             </div>
@@ -126,7 +178,7 @@
             <button type="submit">🚀 Optimize & Download ZIP</button>
         </form>
 
-        <p class="note">Files are processed in memory and never stored on the server.</p>
+        <p class="note">🔒 Privacy First: Files are processed in memory and never stored on the server.</p>
     </div>
 
     <script>
@@ -134,8 +186,10 @@
             const input = document.getElementById('fileInput');
             const label = document.getElementById('fileLabel');
             if (input.files.length > 0) {
-                label.innerText = `✅ ${input.files.length} Files Selected`;
-                label.style.color = "green";
+                label.innerHTML = `✅ <b>${input.files.length}</b> Files Selected`;
+                label.style.color = "#28a745";
+                label.parentElement.style.borderColor = "#28a745";
+                label.parentElement.style.background = "#eefff2";
             }
         }
     </script>
