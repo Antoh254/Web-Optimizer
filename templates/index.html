@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Image Optimizer</title>
+
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+            text-align: left;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: #555;
+        }
+
+        input[type="number"],
+        input[type="range"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        /* File Upload Styling */
+        .file-upload {
+            border: 2px dashed #ccc;
+            padding: 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            background: #fafafa;
+            transition: 0.3s;
+            text-align: center;
+        }
+
+        .file-upload:hover {
+            border-color: #007bff;
+            background: #f0f8ff;
+        }
+
+        input[type="file"] {
+            display: none;
+        }
+
+        button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            width: 100%;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.2s;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background: #0056b3;
+        }
+
+        .note {
+            font-size: 0.8rem;
+            color: #888;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>⚡ Web Optimizer</h1>
+
+        <form action="/optimize" method="POST" enctype="multipart/form-data">
+
+            <label for="fileInput" class="file-upload">
+                <span id="fileLabel">📂 Click to Select Images</span>
+                <input type="file" id="fileInput" name="images" multiple accept="image/*" required
+                    onchange="updateCount()">
+            </label>
+
+            <div class="form-group" style="margin-top: 15px;">
+                <label>Max Width (px):</label>
+                <input type="number" name="width" value="1200">
+            </div>
+
+            <div class="form-group">
+                <label>Quality (1-100): <span id="qValue">85</span></label>
+                <input type="range" name="quality" min="10" max="100" value="85"
+                    oninput="document.getElementById('qValue').innerText = this.value">
+            </div>
+
+            <button type="submit">🚀 Optimize & Download ZIP</button>
+        </form>
+
+        <p class="note">Files are processed in memory and never stored on the server.</p>
+    </div>
+
+    <script>
+        function updateCount() {
+            const input = document.getElementById('fileInput');
+            const label = document.getElementById('fileLabel');
+            if (input.files.length > 0) {
+                label.innerText = `✅ ${input.files.length} Files Selected`;
+                label.style.color = "green";
+            }
+        }
+    </script>
+
+</body>
+
+</html>
