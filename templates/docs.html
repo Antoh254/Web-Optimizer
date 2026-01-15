@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentation - Web Optimizr</title>
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="container" style="max-width: 800px;">
+        <a href="/" class="back-link">← Back to Tools</a>
+
+        <h1>📚 Documentation</h1>
+        <p class="subtitle">Complete guide to Web Optimizr features and tools</p>
+
+        <div class="docs-content">
+            <h2>Overview</h2>
+            <p>
+                Web Optimizr is a privacy-focused toolkit for developers. It runs
+                entirely in-memory (on the server-side for the web app, or locally for the desktop app),
+                ensuring your files are never saved to a disk.
+            </p>
+
+            <h2>🚀 Image Optimizer</h2>
+            <p>
+                Compress and resize images for the web.
+            </p>
+            <ul>
+                <li><b>Input Formats:</b> JPG, PNG, JPEG.</li>
+                <li><b>Output Format:</b> WebP (Modern, high compression).</li>
+                <li><b>Customization:</b> Set max width (files resize proportionally) and compression quality (1-100).
+                </li>
+            </ul>
+
+            <h2>⚡ Code Minifier</h2>
+            <p>
+                Reduce file size of your source code for production.
+            </p>
+            <h3>CSS Minification</h3>
+            <p>Removes whitespace, comments, and optimizes syntax using <code>cssmin</code>.</p>
+
+            <h3>JS Minification</h3>
+            <p>Removes whitespace and comments using <code>jsmin</code>.</p>
+
+            <h2>🖥️ Desktop Application</h2>
+            <p>
+                The desktop app is the recommended way to use Web Optimizr for frequent tasks.
+            </p>
+
+            <h3>Why use the Desktop App?</h3>
+            <ul>
+                <li><b>Instant Speed:</b> No upload/download latency.</li>
+                <li><b>Offline Capable:</b> Works without internet.</li>
+                <li><b>Native Experience:</b> Uses the same premium dark UI.</li>
+            </ul>
+
+            <h3>Installation Guide</h3>
+
+            <h4>Linux (Recommended: Binary)</h4>
+            <p>1. Download the pre-built binary:</p>
+            <pre><a href="/download/linux" style="color: inherit;">Download WebOptimizer_Linux</a></pre>
+            <p>2. Open your terminal in the download folder.</p>
+            <p>3. Make the file executable and run it:</p>
+            <pre>
+chmod +x WebOptimizer_Linux
+./WebOptimizer_Linux</pre>
+
+            <h4>Linux (Alternative: Source)</h4>
+            <p>If the binary doesn't work, you can run from source:</p>
+            <pre>
+# Install Python and Tkinter
+sudo apt install python3 python3-pip python3-tk
+
+# Clone or download the source code
+# (Assuming you have the files)
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Run the app
+python3 desktop_app.py</pre>
+
+            <h4>Windows</h4>
+            <p>Currently distributed as Python source. Install Python 3, then run:</p>
+            <pre>
+pip install -r requirements.txt
+python desktop_app.py</pre>
+
+            <h2>🔒 Privacy Policy</h2>
+            <p>
+                We do not store your files.
+                <br>
+                <b>Web App:</b> Files are processed in RAM and deleted immediately after the ZIP file is generated.
+                <br>
+                <b>Desktop App:</b> Files never leave your computer.
+            </p>
+        </div>
+    </div>
+
+</body>
+
+</html>
