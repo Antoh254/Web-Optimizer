@@ -57,5 +57,12 @@ def download_linux():
     except FileNotFoundError:
         return "File not found. Please build the app first.", 404
 
+@app.route('/download/windows')
+def download_windows():
+    try:
+        return send_from_directory(DOWNLOAD_FOLDER, 'WebOptimizr.exe', as_attachment=True)
+    except FileNotFoundError:
+        return "File not found. Please build the app first.", 404
+
 if __name__ == '__main__':
     app.run(debug=True, port=5000)
