@@ -4,7 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web Optimizer Pro</title>
+    <title>Web Optimizer Pro - Free Image Optimizer & Code Minifier</title>
+    <meta name="description"
+        content="Free tool to optimize images (WebP) and minify CSS/JS code. Privacy-focused: files processed in memory and never stored. Download the desktop app for offline use.">
+    <meta name="keywords"
+        content="image optimizer, webp converter, css minifier, js minifier, web performance, privacy focused, desktop app">
+    <meta property="og:title" content="Web Optimizer Pro - Free Image Optimizer & Code Minifier">
+    <meta property="og:description"
+        content="Optimize images and minify code securely. Files processed in-memory. Includes desktop app.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://web-optimizer.herokuapp.com/">
+    <meta property="og:image" content="https://web-optimizer.herokuapp.com/static/img/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="canonical" href="https://web-optimizer.herokuapp.com/">
     <link rel="icon"
         href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
@@ -13,7 +25,7 @@
 
 <body>
 
-    <div class="container">
+    <main class="container">
         <a href="/docs" class="nav-link">📚 Documentation</a>
 
         <h1>⚡ Web Optimizr</h1>
@@ -107,7 +119,7 @@
         </div>
 
         <p class="note">🔒 Files are processed in memory and never stored.</p>
-    </div>
+    </main>
 
     <script src="{{ url_for('static', filename='js/main.js') }}"></script>
 </body>

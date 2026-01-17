@@ -64,5 +64,13 @@ def download_windows():
     except FileNotFoundError:
         return "File not found. Please build the app first.", 404
 
+@app.route('/sitemap.xml')
+def sitemap():
+    return render_template('sitemap.xml')
+
+@app.route('/robots.txt')
+def robots():
+    return render_template('robots.txt')
+
 if __name__ == '__main__':
     app.run(debug=True, port=5000)
