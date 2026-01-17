@@ -2,3 +2,5 @@ Flask
 Pillow
 jsmin
 cssmin
+customtkinter
+pyinstaller
