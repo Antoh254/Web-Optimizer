@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://web-optimizer.herokuapp.com/sitemap.xml
+Sitemap: https://webimageoptimizer.pythonanywhere.com/sitemap.xml
